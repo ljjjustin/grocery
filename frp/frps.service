@@ -1,0 +1,14 @@
+[Unit]
+Description=Frp Server
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Restart=on-failure
+RestartSec=5s
+ExecStart=/data/frp/frps -c /data/frp/frps.ini
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target

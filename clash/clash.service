@@ -1,0 +1,9 @@
+[Unit]
+Description=Clash Daemon
+
+[Service]
+ExecStart=/data/clash/clash -d /data/clash/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=The zentao server
+After=network.target nss-lookup.target
+
+[Service]
+Type=forking
+WorkingDirectory=/data/zbox/
+ExecStart=/data/zbox/start.sh
+ExecReload=/data/zbox/zbox restart
+ExecStop=/data/zbox/stop.sh
+TimeoutStopSec=15
+KillMode=none
+
+[Install]
+WantedBy=multi-user.target

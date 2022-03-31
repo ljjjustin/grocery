@@ -1,0 +1,15 @@
+[Unit]
+Description=Cloudreve
+Documentation=https://docs.cloudreve.org/
+After=network.target
+Wants=network.target
+
+[Service]
+WorkingDirectory=/data/cloudreve
+ExecStart=/data/cloudreve/cloudreve
+Restart=on-abnormal
+RestartSec=5s
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
