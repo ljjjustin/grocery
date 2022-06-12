@@ -213,7 +213,7 @@ After=network.target
 User=monitoring
 Group=monitoring
 Type=simple
-ExecStart=$TOPDIR/bin/prometheus --config.file=$TOPDIR/prometheus/prometheus.yaml --storage.tsdb.path=$TOPDIR/prometheus/data
+ExecStart=$TOPDIR/bin/prometheus --config.file=$TOPDIR/prometheus/prometheus.yaml --storage.tsdb.path=$TOPDIR/prometheus/data --web.listen-address=:9090
 Restart=on-failure
 
 [Install]
@@ -225,7 +225,7 @@ systemctl start  prometheus
 systemctl status prometheus
 
 # install grafana
-ensure_install_file https://dl.grafana.com/enterprise/release/grafana-8.4.2.linux-amd64.tar.gz
+ensure_install_file https://dl.grafana.com/oss/release/grafana-8.4.2.linux-amd64.tar.gz
 
 if [ ! -d $TOPDIR/grafana ]; then
     tar xf grafana-8.4.2.linux-amd64.tar.gz
